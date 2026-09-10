@@ -170,21 +170,7 @@ C# Dev Kit от Microsoft бесплатен для индивидуальног
 Поскольку пункт *«Add Project Reference»* предназначен для связки проектов между собой, локальные сторонние DLL-файлы с диска в .NET всегда подключаются через секцию `<ItemGroup>` внутри самого файла проекта. Это делается за 15 секунд:
 
 1. В проводнике **кликни один раз по файлу `TFlexMacroTest.csproj`** — он откроется как текстовый файл.
-2. Вставь перед закрывающим тегом `</Project>` блок ссылок на твои DLL-файлы T-FLEX:
-   ```xml
-   <ItemGroup>
-     <Reference Include="TFlex.DOCs.Model">
-       <HintPath>C:\Program Files\Топ Системы\T-FLEX DOCs 17\Program\TFlex.DOCs.Model.dll</HintPath>
-     </Reference>
-     <Reference Include="TFlex.DOCs.Model.Macros">
-       <HintPath>C:\Program Files\Топ Системы\T-FLEX DOCs 17\Program\TFlex.DOCs.Model.Macros.dll</HintPath>
-     </Reference>
-     <Reference Include="TFlex.DOCs.Model.References">
-       <HintPath>C:\Program Files\Топ Системы\T-FLEX DOCs 17\Program\TFlex.DOCs.Model.References.dll</HintPath>
-     </Reference>
-   </ItemGroup>
-   ```
-   *(Путь внутри `<HintPath>` укажи тот, где реально установлена твоя версия T-FLEX DOCs)*.
+2. Заполни файл по шаблону из `Шаблон TFlexMacroTest.csproj.md`
 3. Нажми **`Ctrl` + `S`**, чтобы сохранить файл.
 4. Теперь загляни в блок слева **«C# PROJECT DETAILS»** → раскрой **Dependencies** → **Assemblies**: ты увидишь, что все библиотеки T-FLEX там появились!
 
