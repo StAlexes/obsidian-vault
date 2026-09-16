@@ -63,18 +63,21 @@ def is_icon(src_value: str) -> bool:
 
 def clean_and_prepare_html(soup: BeautifulSoup, html_file_path: Path, assets_dir: Path):
     """Глубокая нормализация структуры DOM HTML."""
-    # 1. Удаляем невидимый мусор
+    # 1. Удаляем невидимый технический мусор
     for tag in soup(["script", "style", "meta", "link", "noscript"]):
         tag.decompose()
 
-    # 2. Вычищаем все кнопки копирования, плашки C# и Unicode-символы буфера
-    copy_pattern = re.compile(r"(?:^\s*(?:копировать|copy|c#)\s*$|[\u25a0-\u25ff\u29c9\u274f\u2398])", re.IGNORECASE)
+    # 2. Вычищаем кнопки копирования, плашки C# и символы буфера обмена
+    copy_pattern = re.compile(
+        r"(?:^\s*(?:копировать|copy|c#)\s*$|[\u25a0-\u25ff\u29c9\u274f\u2398])",
+        re.IGNORECASE,
+    )
     for el in list(soup.find_all(string=copy_pattern)):
         parent = el.parent
         if parent and parent.name in ["button", "span", "a", "div", "p", "td"] and len(parent.get_text(strip=True)) <= 15:
             parent.decompose()
 
-    # 3. Нормализация ссылок методов в inline-code
+    # 3. Разделение ссылок пробелами (чтобы не склеивались при конвертации)
     for a in list(soup.find_all("a")):
         href = a.get("href", "")
         text = a.get_text(strip=True)
@@ -83,15 +86,15 @@ def clean_and_prepare_html(soup: BeautifulSoup, html_file_path: Path, assets_dir
                 code_tag = soup.new_tag("code")
                 code_tag.string = text
                 a.replace_with(code_tag)
+                code_tag.insert_after(" ")
             else:
-                a.replace_with(text)
+                a.replace_with(text + " ")
 
-    # 4. РАСПАКОВКА ТАБЛИЦ С КОДОМ (главная причина слипаний и значков справа)
-    # Если внутри таблицы есть <pre> или явный C#-код, извлекаем код наружу и удаляем таблицу-обертку
+    # 4. Распаковка таблиц с кодом
     for table in list(soup.find_all("table")):
         text_table = table.get_text()
 
-        # Проверяем, таблица ли это с цитатой ("Внимание" / "Примечание")
+        # Цитаты "Внимание" / "Примечание"
         if "Внимание" in text_table or "Примечание" in text_table:
             cells = [td.get_text(strip=True) for td in table.find_all(["td", "th"]) if td.get_text(strip=True)]
             if cells:
@@ -100,17 +103,16 @@ def clean_and_prepare_html(soup: BeautifulSoup, html_file_path: Path, assets_dir
                 table.replace_with(bquote)
                 continue
 
-        # Если таблица содержит блок кода <pre>
+        # Таблица с тегом <pre>
         pres = table.find_all("pre")
         if pres:
-            # Извлекаем все блоки кода из ячеек таблицы и ставим их вместо самой таблицы
             replacement_div = soup.new_tag("div")
             for p in pres:
                 replacement_div.append(p)
             table.replace_with(replacement_div)
             continue
 
-        # Если кода <pre> нет, но ячейка содержит строки кода (ТекущийОбъект..., НайтиОбъект...)
+        # Таблица со строками C#-кода
         if any(marker in text_table for marker in ["ТекущийОбъект.", "Объект.", "НайтиОбъект(", "ИзменитьСтадию"]):
             lines = [l.strip() for l in text_table.strip().splitlines() if l.strip()]
             if lines and any(";" in l or "=" in l for l in lines):
@@ -119,12 +121,12 @@ def clean_and_prepare_html(soup: BeautifulSoup, html_file_path: Path, assets_dir
                 table.replace_with(pre_tag)
                 continue
 
-        # Удаляем пустые оформительские таблицы
+        # Пустые оформительские таблицы
         cells = table.find_all(["td", "th"])
         if len(cells) <= 2 and len(text_table.strip()) < 80:
             table.decompose()
 
-    # 5. Обработка картинок и перемещение в _assets
+    # 5. Обработка изображений и перенос в _assets
     for img in list(soup.find_all("img")):
         src_raw = img.get("src", "").strip()
         if not src_raw:
@@ -169,7 +171,6 @@ class CustomConverter(MarkdownConverter):
     """Генерирует строго оформленные блоки ```csharp с отступами."""
     def convert_pre(self, el, text, convert_as_inline=False, parent_tags=None):
         code_text = el.get_text()
-        # Вычищаем случайные слова csharp из самого исходного текста кода
         lines = [line.rstrip() for line in code_text.splitlines()]
         clean_lines = []
         for line in lines:
@@ -181,12 +182,36 @@ class CustomConverter(MarkdownConverter):
         if not final_code:
             return ""
 
-        # Гарантируем чистый открывающий и закрывающий тег Markdown
         return f"\n\n```csharp\n{final_code}\n```\n\n"
 
 
+def fix_references_section(text: str) -> str:
+    """
+    Расклеивает ссылки исключительно внутри раздела 'Ссылки',
+    не трогая блоки кода в основном тексте.
+    """
+    def replacer(match):
+        header = match.group(1)
+        body = match.group(2)
+        # Находим все одиночные имена классов внутри обратных кавычек
+        items = re.findall(r"`([^`\n]+)`", body)
+        if not items:
+            return match.group(0)
+        formatted_items = "\n".join(f"- `{item.strip()}`" for item in items if item.strip())
+        return f"{header}\n\n{formatted_items}\n\n"
+
+    # Применяем только к содержимому после заголовка "Ссылки"
+    text = re.sub(
+        r"(#+\s*Ссылки\s*\n+)([\s\S]*?)(?=\n#+|\Z)",
+        replacer,
+        text,
+        flags=re.IGNORECASE,
+    )
+    return text
+
+
 def clean_markdown_text(text: str) -> str:
-    """Удаление мусора разметки, колонтитулов и жесткое разведение блоков."""
+    """Удаление мусора разметки, колонтитулов и нормализация отступов."""
     # 1. Колонтитулы
     text = re.sub(r"Руководство по T-FLEX DOCs.*?\n", "", text, flags=re.IGNORECASE)
     lines = []
@@ -201,20 +226,18 @@ def clean_markdown_text(text: str) -> str:
     text = re.sub(r"[\u25a0-\u25ff\u29c9\u274f\u2398]", "", text)
     text = re.sub(r"^\s*C#\s*$", "", text, flags=re.MULTILINE | re.IGNORECASE)
 
-    # 3. Исправление деформированных тегов ```
-    # Убирает паразитный пустой блок ``` перед ```csharp
+    # 3. Чистка дефектов тегов блоков кода
     text = re.sub(r"```\s*\n+(?=```csharp)", "", text)
-    # Убирает случайный мусор типа ```csharp\ncsharp\n
     text = re.sub(r"(```csharp\s*\n)\s*csharp\s*\n", r"\1", text, flags=re.IGNORECASE)
 
-    # 4. ГАРАНТИРОВАННОЕ РАЗВЕДЕНИЕ БЛОКОВ И МЕТОДОВ:
-    # Обязательно две пустые строки после закрывающего блока ``` перед любым текстом
+    # 4. Разведение блоков кода и описания методов
     text = re.sub(r"(```)\n+(?=[^\s\n#])", r"\1\n\n", text)
-
-    # Обязательно пустая строка перед блоком метода `Имя(...)`, если он прилип к предыдущей строке
     text = re.sub(r"([^\n])\n(`[A-Za-zА-Яа-я_][\w\.]*\s*\([^\)\n]*\)`\s*\n\s*[-–—])", r"\1\n\n\2", text)
 
-    # 5. Сворачивание лишних пустых строк (не больше 2 подряд)
+    # 5. Обработка раздела «Ссылки»
+    text = fix_references_section(text)
+
+    # 6. Сворачивание лишних пустых строк (не более 2 подряд)
     text_lines = [line.rstrip() for line in text.splitlines()]
     cleaned = "\n".join(text_lines)
     while "\n\n\n" in cleaned:
