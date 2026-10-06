@@ -11057,267 +11057,6 @@ public class Macro(MacroContext context) : MacroProvider(context)
 
 ---
 
-## T-FLEX DOCs Open API Diagram
-
-Страница-1
-
-Фильтрация объектов
-
-Фильтрация объектов
-
-Лист.171
-
-Фильтрация объектов
-Фильтрация объектов
-
-Лист.173
-
-Фильтрация объектов
-
-Соединение с сервером
-
-Соединение с сервером
-
-Лист.176
-
-Соединение с сервером
-Соединение с сервером
-
-Лист.178
-
-Соединение с сервером
-
-Справочник
-
-Справочник
-
-Лист.181
-
-Справочник
-Справочник
-
-Лист.183
-
-Справочник
-
-Связи объекта справочника
-
-Связи объекта справочника.
-
-Лист.186
-
-Связи объекта справочника
-Связи объекта справочника
-
-Лист.188
-
-Связи объекта справочника
-
-Стадии.
-
-Стадии
-
-Лист.191
-
-Стадии
-Стадии
-
-Лист.193
-
-Стадии
-
-Подписи.
-
-Подписи
-
-Лист.196
-
-Подписи
-Подписи
-
-Лист.198
-
-Подписи
-
-Объект справочника
-
-Объект справочника.
-
-Лист.201
-
-Объект справочника
-Объект справочника
-
-Лист.203
-
-Объект справочника
-ServerConnection
-ServerConnection
-
-ServerConnection
-ConnectionParameters
-ConnectionParameters
-
-ConnectionParameters
-ClientView
-ClientView
-
-ClientView
-ReferenceCatalog
-ReferenceCatalog
-
-ReferenceCatalog
-SystemReferences
-SystemReferences
-
-SystemReferences
-Reference
-Reference
-
-Reference
-ParameterGroup
-ParameterGroup
-
-ParameterGroup
-ReferenceObjectCollection
-ReferenceObjectCollection
-
-ReferenceObjectCollection
-ClassTree
-ClassTree
-
-ClassTree
-ClassObjectCollection
-ClassObjectCollection
-
-ClassObjectCollection
-Связь между ReferenceInfo и ClassTree
-Связь между ClassTree и ClassObjectCollection
-ReferenceObject
-ReferenceObject
-
-ReferenceObject
-ClassObject
-ClassObject
-
-ClassObject
-ComplexHierarchyLink
-ComplexHierarchyLink
-
-ComplexHierarchyLink
-Desktop
-Desktop
-
-Desktop
-Связь между ReferenceObject и ClassObject
-Связь между Desktop и ReferenceObject
-Связь между ClassTree и ParameterGroup
-Связь между ServerConnection и ReferenceCatalog
-Связь между ServerConnection и ClientView
-Связь между ServerConnection и SystemReferences
-Связь между ServerConnection и ConnectionParameters
-Связь между Reference и ClassTree
-Связь между Reference и ParameterGroup
-Связь между Reference и ReferenceObjectCollection
-Связь между Reference и ReferenceInfo
-ReferenceObjectLinks
-ReferenceObjectLinks
-
-ReferenceObjectLinks
-AnyReferenceLink
-AnyReferenceLink
-
-AnyReferenceLink
-OneToOneLink
-OneToOneLink
-
-OneToOneLink
-Связь между ReferenceObjectLinks и AnyReferenceLink
-Связь между ReferenceObjectLinks и OneToOneLink
-Связь между ReferenceObject и ComplexHierarchyLink
-Filter
-Filter
-
-Filter
-FilterTerm
-FilterTerm
-
-FilterTerm
-TermGroup
-TermGroup
-
-TermGroup
-ReferenceObjectTerm
-ReferenceObjectTerm
-
-ReferenceObjectTerm
-Связь между Filter и TermGroup
-Связь между FilterTerm и Filter
-Связь между TermGroup и ReferenceObjectTerm
-Stage
-Stage
-
-Stage
-SchemeStage
-SchemeStage
-
-SchemeStage
-Scheme
-Scheme
-
-Scheme
-Связь между Stage и SchemeStage
-Связь между Scheme и SchemeStage
-Signature
-Signature
-
-Signature
-SignatureType
-SignatureType
-
-SignatureType
-Лист.105
-SignatureTypes
-
-SignatureTypes
-SignatureCollection
-SignatureCollection
-
-SignatureCollection
-Связь между Signature и SignatureTypes
-Связь между Signature и SignatureType
-Связь между Signature и SignatureCollection
-Связь между SignatureType и SignatureTypes
-Связь между SignatureCollection и SignatureTypes
-Связь между ReferenceCatalog и ReferenceInfo
-Связь между группами "Справочник" и "Объект справочника"
-Описание связей между ClassObject и группой "Стадии" на диаграмме T-FLEX DOCs Open API.
-Связь между группами "Справочник" и "Стадии"
-Связь между группой "Справочник" и Filter
-Описание связей между группами "Справочник" и "Подписи" на диаграмме T-FLEX DOCs Open API.
-Описание связей между группами "Объект справочника" и "Подписи" на диаграмме T-FLEX DOCs Open API.
-ReferenceInfo
-ReferenceInfo
-
-ReferenceInfo
-Связь между SystemReferences и Reference
-OneToManyLink
-OneToManyLink
-
-OneToManyLink
-OneToManyTable
-OneToManyTable
-
-OneToManyTable
-Связь между ReferenceObjectLinks и OneToManyLink
-Связь между ReferenceObjectLinks и OneToManyTable
-Описание связей между группами "Объект справочника" и "Связи объекта справочника" на диаграмме T-FLEX DOCs Open API.
-Связь между ServerConnection и Stage
-Описание связей между группами "Объект справочника" и "Связи объекта справочника" на диаграмме T-FLEX DOCs Open API.
-
-
----
-
 ## Список устаревших элементов
 
 Классы
@@ -11441,147 +11180,147 @@ OneToManyTable
 
 Свойства
 
-| Name |
-| --- |
-| Иллюстрация    ClassObjectHasLinkedNomenclatureType |
-| Иллюстрация    ClassObjectLinkedNomenclatureType |
-| Иллюстрация    ClassObjectSigningParameters |
-| Иллюстрация    ClientViewCurrent |
-| Иллюстрация    ClientViewIsAdministrator |
-| Иллюстрация    ClientViewIsSystem |
-| Иллюстрация    ClientConfigurationCurrentRegistryKey |
-| Иллюстрация    ClientConfigurationDefault |
-| Иллюстрация    PointArgumentType |
-| Иллюстрация    PointDateTimeArgument |
-| Иллюстрация    PointDateTimeValue |
-| Иллюстрация    PointDateTimeValue2 |
-| Иллюстрация    PointNumericalArgument |
-| Иллюстрация    PointNumericalValue |
-| Иллюстрация    PointNumericalValue2 |
-| Иллюстрация    PointStringArgument |
-| Иллюстрация    ExportOptionsIncludeDialogs |
-| Иллюстрация    IconImageImageSource |
-| Иллюстрация    DynamicMacroIsDefineServer |
-| Иллюстрация    MacroContextObjectChangedArgs |
-| Иллюстрация    MacroProviderNomenclature |
-| Иллюстрация    MacroProviderНоменклатура |
-| Иллюстрация    MacroProviderЭСИ |
-| Иллюстрация    ReferenceInfoAccessorSupportsNomenclature |
-| Иллюстрация    ReferenceInfoAccessorПоддержкаНоменклатуры |
-| Иллюстрация    ReferenceInfoAccessorПоддержкаЭСИ |
-| Иллюстрация    ProcessMacroProviderChangedLink |
-| Иллюстрация    ProcessMacroProviderChangedParameter |
-| Иллюстрация    ProcessMacroProviderCurrentHierarchyLink |
-| Иллюстрация    ProcessMacroProviderFilterVariable |
-| Иллюстрация    ProcessMacroProviderИзмененнаяСвязь |
-| Иллюстрация    ProcessMacroProviderИзмененныйПараметр |
-| Иллюстрация    ProcessMacroProviderПеременнаяФильтра |
-| Иллюстрация    ProcessMacroProviderТекущееПодключение |
-| Иллюстрация    DOCsAccountInstance |
-| Иллюстрация    ReferenceObjectSystemFieldsIsLinkedToNomenclature |
-| Иллюстрация    ExitStateContextDataVariables |
-| Иллюстрация    ReferenceCatalogRoot |
-| Иллюстрация    ReferenceInfoSupportsNomenclature |
-| Иллюстрация    ActiveActionDataReferenceObjectsList |
-| Иллюстрация    ProjectAssignmentReferenceObjectCanSetProjectElementState |
-| Иллюстрация    BorrowObjectStructResultObject |
+| Name                                                                      |
+| ------------------------------------------------------------------------- |
+| Иллюстрация    ClassObjectHasLinkedNomenclatureType                       |
+| Иллюстрация    ClassObjectLinkedNomenclatureType                          |
+| Иллюстрация    ClassObjectSigningParameters                               |
+| Иллюстрация    ClientViewCurrent                                          |
+| Иллюстрация    ClientViewIsAdministrator                                  |
+| Иллюстрация    ClientViewIsSystem                                         |
+| Иллюстрация    ClientConfigurationCurrentRegistryKey                      |
+| Иллюстрация    ClientConfigurationDefault                                 |
+| Иллюстрация    PointArgumentType                                          |
+| Иллюстрация    PointDateTimeArgument                                      |
+| Иллюстрация    PointDateTimeValue                                         |
+| Иллюстрация    PointDateTimeValue2                                        |
+| Иллюстрация    PointNumericalArgument                                     |
+| Иллюстрация    PointNumericalValue                                        |
+| Иллюстрация    PointNumericalValue2                                       |
+| Иллюстрация    PointStringArgument                                        |
+| Иллюстрация    ExportOptionsIncludeDialogs                                |
+| Иллюстрация    IconImageImageSource                                       |
+| Иллюстрация    DynamicMacroIsDefineServer                                 |
+| Иллюстрация    MacroContextObjectChangedArgs                              |
+| Иллюстрация    MacroProviderNomenclature                                  |
+| Иллюстрация    MacroProviderНоменклатура                                  |
+| Иллюстрация    MacroProviderЭСИ                                           |
+| Иллюстрация    ReferenceInfoAccessorSupportsNomenclature                  |
+| Иллюстрация    ReferenceInfoAccessorПоддержкаНоменклатуры                 |
+| Иллюстрация    ReferenceInfoAccessorПоддержкаЭСИ                          |
+| Иллюстрация    ProcessMacroProviderChangedLink                            |
+| Иллюстрация    ProcessMacroProviderChangedParameter                       |
+| Иллюстрация    ProcessMacroProviderCurrentHierarchyLink                   |
+| Иллюстрация    ProcessMacroProviderFilterVariable                         |
+| Иллюстрация    ProcessMacroProviderИзмененнаяСвязь                        |
+| Иллюстрация    ProcessMacroProviderИзмененныйПараметр                     |
+| Иллюстрация    ProcessMacroProviderПеременнаяФильтра                      |
+| Иллюстрация    ProcessMacroProviderТекущееПодключение                     |
+| Иллюстрация    DOCsAccountInstance                                        |
+| Иллюстрация    ReferenceObjectSystemFieldsIsLinkedToNomenclature          |
+| Иллюстрация    ExitStateContextDataVariables                              |
+| Иллюстрация    ReferenceCatalogRoot                                       |
+| Иллюстрация    ReferenceInfoSupportsNomenclature                          |
+| Иллюстрация    ActiveActionDataReferenceObjectsList                       |
+| Иллюстрация    ProjectAssignmentReferenceObjectCanSetProjectElementState  |
+| Иллюстрация    BorrowObjectStructResultObject                             |
 | Иллюстрация    CharacteristicGroupReferenceObjectLinkGroupCharacteristics |
-| Иллюстрация    ComplexHierarchyLinkRevisionsGroupId |
-| Иллюстрация    ConfigurationSettingsActiveStructures |
-| Иллюстрация    ConfigurationSettingsApplyStructureTypes |
-| Иллюстрация    ConfigurationSettingsEditableStructures |
-| Иллюстрация    ConfigurationSettingsVisibleStructures |
-| Иллюстрация    ConfigurationSettingsDataActiveStructureTypes |
-| Иллюстрация    ConfigurationSettingsDataDisplayStructureTypes |
-| Иллюстрация    ConfigurationSettingsDataShowBaseStructure |
-| Иллюстрация    ImportParametersFileExistsCallback |
-| Иллюстрация    ImportParametersImportFileCallback |
-| Иллюстрация    GlobalParameterReferenceInstance |
-| Иллюстрация    ReferenceObjectLinksOneToMany |
-| Иллюстрация    ReferenceObjectLinksOneToOne |
-| Иллюстрация    LoadSettingsLoadStructureTypes |
-| Иллюстрация    MacroReferenceInstance |
-| Иллюстрация    NomenclatureHierarchyLinkStructureTypes |
-| Иллюстрация    NomenclatureObjectHasLinkedObject |
-| Иллюстрация    NomenclatureObjectIsLinkedObjectLoaded |
-| Иллюстрация    NomenclatureObjectIsMaterialObject |
-| Иллюстрация    NomenclatureObjectLinkedObject |
-| Иллюстрация    NomenclatureObjectLinkedObjectId |
-| Иллюстрация    NomenclatureObjectLinkedObjectReferenceId |
-| Иллюстрация    NomenclatureReferenceDigitalStructureContext |
-| Иллюстрация    NomenclatureRuleNomenclatureParameter |
-| Иллюстрация    NomenclatureRuleReferenceParameter |
-| Иллюстрация    NomenclatureTypeBaseNomenclatureType |
-| Иллюстрация    NomenclatureTypeHasLinkedClass |
-| Иллюстрация    NomenclatureTypeLinkedClass |
-| Иллюстрация    NomenclatureTypeLinkedClassId |
-| Иллюстрация    NomenclatureTypeLinkedInheritClasses |
-| Иллюстрация    NomenclatureTypeLinkedReference |
-| Иллюстрация    NomenclatureTypeLinkedReferenceId |
-| Иллюстрация    NomenclatureTypeLinkedReferenceInfo |
-| Иллюстрация    NomenclatureTypeRules |
-| Иллюстрация    NomenclatureTypeAttributesDefaultNewObjectFolder |
-| Иллюстрация    NomenclatureTypeBuilderLinkedClass |
-| Иллюстрация    NomenclatureTypeBuilderLinkedInheritClasses |
-| Иллюстрация    ProductsClassifierReferenceObjectInstances |
-| Иллюстрация    ProductsClassifierReferenceObjectInstancesLink |
-| Иллюстрация    ProductsClassifierReferenceObjectOptionActions |
-| Иллюстрация    ProductsClassifierReferenceObjectOptionActionsObjectList |
-| Иллюстрация    ProductsClassifierReferenceObjectOptions |
-| Иллюстрация    ProductsClassifierReferenceObjectOptionsObjectList |
-| Иллюстрация    StateObjectBranches |
-| Иллюстрация    ProcessReferenceObjectState |
-| Иллюстрация    ProcessReferenceObjectStateType |
-| Иллюстрация    ReportConfigurationSettingsDataActiveStructureTypes |
-| Иллюстрация    ReportConfigurationSettingsDataDisplayStructureTypes |
-| Иллюстрация    ReportConfigurationSettingsDataShowBaseStructure |
-| Иллюстрация    TasksReferenceObjectNoAssignment |
-| Иллюстрация    UnitReferenceInstance |
-| Иллюстрация    UnitTypesInstance |
-| Иллюстрация    UserReferenceInstance |
-| Иллюстрация    WorkingAreaReferenceInstance |
-| Иллюстрация    ResourceObjectClassName |
-| Иллюстрация    PathItemSupportsSearch |
-| Иллюстрация    ServerGatewayCallback |
-| Иллюстрация    DigitalSignatureContentParametersGuids |
-| Иллюстрация    DigitalSignatureContentReferenceObjectData |
-| Иллюстрация    StageRequireModificationNotice |
-| Иллюстрация    StageSetModificationNoticeReady |
-| Иллюстрация    ParameterInfoBuilderAllowChangeFromGrid |
-| Иллюстрация    ReferenceBuilderSupportsConfigurationSettings |
-| Иллюстрация    ParameterGroupSupportsNomenclature |
-| Иллюстрация    ProjectManagerDependenciesReference |
-| Иллюстрация    ProjectManagerExcludeCategories |
-| Иллюстрация    ProjectManagerOnCreateDependencyAction |
-| Иллюстрация    StructureTypesReferenceObjectShareAccessForAllContexts |
-| Иллюстрация    ParameterGroupDataSupportsNomenclature |
-| Иллюстрация    ConfigSettingsDataForHyperlinkActiveStructureTypes |
-| Иллюстрация    ConfigSettingsDataForHyperlinkDisplayStructureTypes |
-| Иллюстрация    ConfigSettingsDataForHyperlinkShowBaseStructure |
-| Иллюстрация    StructureConfigurationSettingsDataActiveStructureTypes |
-| Иллюстрация    StructureConfigurationSettingsDataApplyStructureTypes |
-| Иллюстрация    StructureConfigurationSettingsDataDisplayStructureTypes |
-| Иллюстрация    StructureConfigurationSettingsDataShowBaseStructure |
-| Иллюстрация    CADDimAccessorItemString |
-| Иллюстрация    AssemblyTechnologicalOperationAssembly |
-| Иллюстрация    IDictionaryDialogParameter |
-| Иллюстрация    INomenclatureItemLinkedObject |
-| Иллюстрация    NomenclatureObjectDataCode |
-| Иллюстрация    NomenclatureObjectDataFormat |
-| Иллюстрация    NomenclatureObjectDataLetter |
-| Иллюстрация    NomenclatureObjectDataMass |
-| Иллюстрация    NomenclatureObjectDataType |
-| Иллюстрация    IExplorerControlSupportOnIdle |
-| Иллюстрация    OpenningContextDenotation |
-| Иллюстрация    OpenningContextDocument |
-| Иллюстрация    OpenningContextName |
-| Иллюстрация    IReportGenerationContextPassword |
-| Иллюстрация    IReportGenerationContextServer |
-| Иллюстрация    IReportGenerationContextUserName |
-| Иллюстрация    IReportGenerationContextWindowsAuthentication |
-| Иллюстрация    TechnologicalOperationOperCode |
-| Иллюстрация    TechnologicalOperationOperTxt |
-| Иллюстрация    TechnologicalProcessTPCode |
+| Иллюстрация    ComplexHierarchyLinkRevisionsGroupId                       |
+| Иллюстрация    ConfigurationSettingsActiveStructures                      |
+| Иллюстрация    ConfigurationSettingsApplyStructureTypes                   |
+| Иллюстрация    ConfigurationSettingsEditableStructures                    |
+| Иллюстрация    ConfigurationSettingsVisibleStructures                     |
+| Иллюстрация    ConfigurationSettingsDataActiveStructureTypes              |
+| Иллюстрация    ConfigurationSettingsDataDisplayStructureTypes             |
+| Иллюстрация    ConfigurationSettingsDataShowBaseStructure                 |
+| Иллюстрация    ImportParametersFileExistsCallback                         |
+| Иллюстрация    ImportParametersImportFileCallback                         |
+| Иллюстрация    GlobalParameterReferenceInstance                           |
+| Иллюстрация    ReferenceObjectLinksOneToMany                              |
+| Иллюстрация    ReferenceObjectLinksOneToOne                               |
+| Иллюстрация    LoadSettingsLoadStructureTypes                             |
+| Иллюстрация    MacroReferenceInstance                                     |
+| Иллюстрация    NomenclatureHierarchyLinkStructureTypes                    |
+| Иллюстрация    NomenclatureObjectHasLinkedObject                          |
+| Иллюстрация    NomenclatureObjectIsLinkedObjectLoaded                     |
+| Иллюстрация    NomenclatureObjectIsMaterialObject                         |
+| Иллюстрация    NomenclatureObjectLinkedObject                             |
+| Иллюстрация    NomenclatureObjectLinkedObjectId                           |
+| Иллюстрация    NomenclatureObjectLinkedObjectReferenceId                  |
+| Иллюстрация    NomenclatureReferenceDigitalStructureContext               |
+| Иллюстрация    NomenclatureRuleNomenclatureParameter                      |
+| Иллюстрация    NomenclatureRuleReferenceParameter                         |
+| Иллюстрация    NomenclatureTypeBaseNomenclatureType                       |
+| Иллюстрация    NomenclatureTypeHasLinkedClass                             |
+| Иллюстрация    NomenclatureTypeLinkedClass                                |
+| Иллюстрация    NomenclatureTypeLinkedClassId                              |
+| Иллюстрация    NomenclatureTypeLinkedInheritClasses                       |
+| Иллюстрация    NomenclatureTypeLinkedReference                            |
+| Иллюстрация    NomenclatureTypeLinkedReferenceId                          |
+| Иллюстрация    NomenclatureTypeLinkedReferenceInfo                        |
+| Иллюстрация    NomenclatureTypeRules                                      |
+| Иллюстрация    NomenclatureTypeAttributesDefaultNewObjectFolder           |
+| Иллюстрация    NomenclatureTypeBuilderLinkedClass                         |
+| Иллюстрация    NomenclatureTypeBuilderLinkedInheritClasses                |
+| Иллюстрация    ProductsClassifierReferenceObjectInstances                 |
+| Иллюстрация    ProductsClassifierReferenceObjectInstancesLink             |
+| Иллюстрация    ProductsClassifierReferenceObjectOptionActions             |
+| Иллюстрация    ProductsClassifierReferenceObjectOptionActionsObjectList   |
+| Иллюстрация    ProductsClassifierReferenceObjectOptions                   |
+| Иллюстрация    ProductsClassifierReferenceObjectOptionsObjectList         |
+| Иллюстрация    StateObjectBranches                                        |
+| Иллюстрация    ProcessReferenceObjectState                                |
+| Иллюстрация    ProcessReferenceObjectStateType                            |
+| Иллюстрация    ReportConfigurationSettingsDataActiveStructureTypes        |
+| Иллюстрация    ReportConfigurationSettingsDataDisplayStructureTypes       |
+| Иллюстрация    ReportConfigurationSettingsDataShowBaseStructure           |
+| Иллюстрация    TasksReferenceObjectNoAssignment                           |
+| Иллюстрация    UnitReferenceInstance                                      |
+| Иллюстрация    UnitTypesInstance                                          |
+| Иллюстрация    UserReferenceInstance                                      |
+| Иллюстрация    WorkingAreaReferenceInstance                               |
+| Иллюстрация    ResourceObjectClassName                                    |
+| Иллюстрация    PathItemSupportsSearch                                     |
+| Иллюстрация    ServerGatewayCallback                                      |
+| Иллюстрация    DigitalSignatureContentParametersGuids                     |
+| Иллюстрация    DigitalSignatureContentReferenceObjectData                 |
+| Иллюстрация    StageRequireModificationNotice                             |
+| Иллюстрация    StageSetModificationNoticeReady                            |
+| Иллюстрация    ParameterInfoBuilderAllowChangeFromGrid                    |
+| Иллюстрация    ReferenceBuilderSupportsConfigurationSettings              |
+| Иллюстрация    ParameterGroupSupportsNomenclature                         |
+| Иллюстрация    ProjectManagerDependenciesReference                        |
+| Иллюстрация    ProjectManagerExcludeCategories                            |
+| Иллюстрация    ProjectManagerOnCreateDependencyAction                     |
+| Иллюстрация    StructureTypesReferenceObjectShareAccessForAllContexts     |
+| Иллюстрация    ParameterGroupDataSupportsNomenclature                     |
+| Иллюстрация    ConfigSettingsDataForHyperlinkActiveStructureTypes         |
+| Иллюстрация    ConfigSettingsDataForHyperlinkDisplayStructureTypes        |
+| Иллюстрация    ConfigSettingsDataForHyperlinkShowBaseStructure            |
+| Иллюстрация    StructureConfigurationSettingsDataActiveStructureTypes     |
+| Иллюстрация    StructureConfigurationSettingsDataApplyStructureTypes      |
+| Иллюстрация    StructureConfigurationSettingsDataDisplayStructureTypes    |
+| Иллюстрация    StructureConfigurationSettingsDataShowBaseStructure        |
+| Иллюстрация    CADDimAccessorItemString                                   |
+| Иллюстрация    AssemblyTechnologicalOperationAssembly                     |
+| Иллюстрация    IDictionaryDialogParameter                                 |
+| Иллюстрация    INomenclatureItemLinkedObject                              |
+| Иллюстрация    NomenclatureObjectDataCode                                 |
+| Иллюстрация    NomenclatureObjectDataFormat                               |
+| Иллюстрация    NomenclatureObjectDataLetter                               |
+| Иллюстрация    NomenclatureObjectDataMass                                 |
+| Иллюстрация    NomenclatureObjectDataType                                 |
+| Иллюстрация    IExplorerControlSupportOnIdle                              |
+| Иллюстрация    OpenningContextDenotation                                  |
+| Иллюстрация    OpenningContextDocument                                    |
+| Иллюстрация    OpenningContextName                                        |
+| Иллюстрация    IReportGenerationContextPassword                           |
+| Иллюстрация    IReportGenerationContextServer                             |
+| Иллюстрация    IReportGenerationContextUserName                           |
+| Иллюстрация    IReportGenerationContextWindowsAuthentication              |
+| Иллюстрация    TechnologicalOperationOperCode                             |
+| Иллюстрация    TechnologicalOperationOperTxt                              |
+| Иллюстрация    TechnologicalProcessTPCode                                 |
 
 Методы
 
